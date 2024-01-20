@@ -60,6 +60,10 @@ export const {
       }
 
       if (session.user) {
+        session.user.documentsCount = token.documentsCount as number;
+      }
+
+      if (session.user) {
         session.user.name = token.name;
         session.user.email = token.email;
       }
@@ -76,6 +80,7 @@ export const {
       token.name = existingUser.name;
       token.email = existingUser.email;
       token.role = existingUser.role;
+      token.documentsCount = existingUser.documentsCount;
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
       return token;
